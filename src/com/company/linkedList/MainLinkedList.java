@@ -35,8 +35,8 @@ class LinkedList {
     }
 
     /* This function is in LinkedList class.
-Inserts a new node after the given prev_node. This method is
-defined inside LinkedList class shown above */
+   Inserts a new node after the given prev_node. This method is
+   defined inside LinkedList class shown above */
     public void insertAfter(Node prev_node, int new_data) {
         /* 1. Check if the given Node is null */
         if (prev_node == null) {
@@ -53,6 +53,36 @@ defined inside LinkedList class shown above */
 
         /* 5. make next of prev_node as new_node */
         prev_node.next = new_node;
+    }
+
+    /* This function is in LinkedList class.
+Inserts a new node at  the given index. This method is
+defined inside LinkedList class shown above */
+    public void insertAt(int data, int index) {
+//        /* 1. Check if the given Node is null */
+//        if (prev_node == null) {
+//            System.out.println("The given previous node cannot be null");
+//            return;
+//        }
+
+    /* 2. Allocate the Node &
+    3. Put in the data*/
+        Node new_node = new Node(data);
+        new_node.data = data;
+
+        if (index == 1) {
+            new_node.next = head;
+            head = new_node;
+            return;
+        }
+
+        Node temp = head;
+
+        for (int i = 0; i < index - 2; i++) {
+            temp = temp.next;
+        }
+        new_node.next = temp.next;
+        temp.next = new_node;
     }
 
     /* This function prints contents of linked list starting from head */
@@ -159,6 +189,9 @@ public class MainLinkedList {
         linkedList.printList();
         linkedList.append(7);
         System.out.println(linkedList.search(1));
+        linkedList.printList();
+
+        linkedList.insertAt(-2, 3);
         linkedList.printList();
 
 
