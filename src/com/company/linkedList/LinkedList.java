@@ -4,7 +4,7 @@ public class LinkedList<T> {
 
 
     private Node<T> head; // head of the list
-    private int size;
+    private int size = 0;
 
     /* Linked list Node*/
     static class Node<T> {
